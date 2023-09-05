@@ -1,4 +1,4 @@
-package com.example.FirstSpringProj.songr.Controller;
+package com.example.FirstSpringProj.songr;
 
 public class Album {
 //    Create an Album class to act as a model in our app.
