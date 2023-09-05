@@ -1,7 +1,5 @@
 package com.example.FirstSpringProj.songr;
 
-import com.example.FirstSpringProj.songr.Controller.Album;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
