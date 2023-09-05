@@ -16,9 +16,9 @@ public class AlbumController {
     @GetMapping("/album")
     public String albumRes(Model m){
         ArrayList<Album> albums=new ArrayList<>();
-        albums.add(new Album("album1"));
-        albums.add(new Album("album2"));
-        albums.add(new Album("album3"));
+        albums.add(new Album("album1","artist1",10,100,"https//:"));
+        albums.add(new Album("album2","artist2",10,100,"https//:"));
+        albums.add(new Album("album3","artist3",10,100,"https//:"));
 
         m.addAttribute("albums",albums);
         return "albums.html";
