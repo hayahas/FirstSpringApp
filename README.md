@@ -14,3 +14,9 @@
    - "localhost:8080/hello" will return "Hello World Message".
    - "localhost:8080/capitalize/anytext" will return the text after the second backslash capitalized (you can enter any other text).
    - "localhost:8080/album" will Return List of Albums.
+
+------
+
+   ## Albums Display details:
+   - "localhost:8080/createalbum" by running this route and adding key and values to the body the table will be updated and data added to the database .
+   - "localhost:8080/" will return all data related to the albums displayed in table and can add different albums using the web page.
