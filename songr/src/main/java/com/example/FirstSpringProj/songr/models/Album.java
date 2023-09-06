@@ -1,11 +1,16 @@
-package com.example.FirstSpringProj.songr;
+package com.example.FirstSpringProj.songr.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Album {
-//    Create an Album class to act as a model in our app.
-//    An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s art.
-//    Create a route at /albums that shows three album instances. (These will be hardcoded for today’s lab; create an array that contains three albums, and then display those three on the page.)
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String title;
     private String artist;
     private int songCount;
@@ -25,6 +30,14 @@ public class Album {
         this.songCount = songCount;
         this.lengthInSec = lengthInSec;
         this.url = url;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
