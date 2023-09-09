@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 
 <head>
+    <link rel="stylesheet" href="/style.css">
     <meta charset="UTF-8">
     <title>Albums</title>
 </head>
@@ -21,33 +22,65 @@
 
 <body>
 <h1>Albums</h1>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Artist</th>
-        <th>Song Count</th>
-        <th>Length (s)</th>
-        <th>Image</th>
-    </tr>
 
+<div class="album-cards-container">
     <th:block th:each="album : ${albums}">
-        <tr>
-            <td th:text="${album.title}"></td>
-            <td th:text="${album.artist}"></td>
-            <td th:text="${album.songCount}"></td>
-            <td th:text="${album.lengthInSec}"></td>
-            <td><img th:src="${album.url}" width="100" height="100" alt="Album Art"></td>
-        </tr>
+        <div class="col-md-3 mb-4">
+        <div class="album-card">
+            <img th:src="${album.url}" width="100" height="100" alt="Album Art">
+            <div class="album-details">
+                <h2  th:text="${album.title}"></h2>
+                <p th:text="${album.artist}"></p>
+                <p> <span th:text="${album.songCount}"></span> songs</p>
+                <p> <span th:text="${album.lengthInSec}"></span> (s) </p>
+            </div>
+        </div>
+        </div>
     </th:block>
-</table>
+</div>
+
+<style>
+ .album-cards-container {
+display: flex;
+flex-wrap: wrap;
+    margin-left: 70px;
+}
+
+ .album-card {
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+margin: 10px;
+padding: 10px;
+background-color:#7c9d9661;
+width: 300px;
+}
+
+</style>
 
 <form action="/createalbum" method="post">
     <fieldset>
-        <legend>Add Albums Store</legend>
-        <label for="name">Album Name</label>
-        <input type="text" name="name" id="name">
+
+        <legend>Add Albums to Store</legend>
+        <label for="title">Album Name</label>
+        <input type="text" name="title" id="title" >
+
+        <label for="artist">Artist</label>
+        <input type="text" name="artist" id="artist">
+
+        <label for="songCount">Song Count</label>
+        <input type="text" name="songCount" id="songCount" >
+
+        <label for="lengthInSec">Length (s)</label>
+        <input type="text" name="lengthInSec" id="lengthInSec" >
+
+        <label for="url">Image URL</label>
+        <input type="text" name="url" id="url" >
+
         <input type="submit" value="Add">
+
     </fieldset>
+
 </form>
 </body>
 

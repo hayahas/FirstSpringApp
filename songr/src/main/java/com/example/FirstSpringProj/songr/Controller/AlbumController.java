@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -18,14 +19,19 @@ public class AlbumController {
     @Autowired
     AlbumsRepositry albumsRepositry;
     @PostMapping("/createalbum")
-    public RedirectView createAlbums(String tile,String artist, int songCount, int lengthInSec,String url){
+    public RedirectView createAlbums(String title,String artist, int songCount, int lengthInSec,String url){
 
-        Album album = new Album(tile,artist,songCount,lengthInSec,url);
+        Album album = new Album(title,artist,songCount,lengthInSec,url);
 
            albumsRepositry.save(album);
         return new RedirectView("/");
     }
 
+//    @PostMapping("/createalbum")
+//    public RedirectView createAlbum(@ModelAttribute Album album) {
+//        albumsRepositry.save(album);
+//        return new RedirectView("/");
+//    }
     @GetMapping("/")
     public String getAllAlbums(Model m)
     {
@@ -33,14 +39,6 @@ public class AlbumController {
         m.addAttribute("albums", albums);
         return "albums.html";
     }
-
-//    @GetMapping("/")
-//public String getAllAlbums(Model m){
-//        List<Album> albums = albumsRepositry.findAll();
-//        m.addAttribute("albums",albums);
-//        return "albums.html";
-//}
-
 
 
 
