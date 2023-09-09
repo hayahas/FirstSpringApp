@@ -14,7 +14,7 @@ public class FirstController {
 
 
 //localhost:8080/
-    @GetMapping("/")
+    @GetMapping("/ourApp")
     public String basicRes(){
         return "SongrApp.html" ;
 
