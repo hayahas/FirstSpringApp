@@ -1,21 +1,22 @@
 package com.example.FirstSpringProj.songr.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
     private String artist;
     private int songCount;
     private int lengthInSec;
 
+
+    @OneToMany(mappedBy = "album" , cascade = CascadeType.ALL)
+    List<Song> songs;
     private String url;
     public Album() {
     }
@@ -23,6 +24,20 @@ public class Album {
     public Album(String title) {
         this.title = title;
     }
+
+
+    public Album(String title, String artist, int songCount, int lengthInSec, String url, List<Song> songs) {
+
+        this.title = title;
+        this.artist = artist;
+        this.songCount = songCount;
+        this.lengthInSec = lengthInSec;
+        this.url = url;
+        this.songs = songs;
+    }
+
+
+
 
     public Album(String title, String artist, int songCount, int lengthInSec, String url) {
         this.title = title;
@@ -32,11 +47,20 @@ public class Album {
         this.url = url;
     }
 
-    public long getId() {
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

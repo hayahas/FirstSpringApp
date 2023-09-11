@@ -8,7 +8,6 @@
 </head>
 <!--<body>-->
 <!--<h1>Album List :</h1>-->
-
 <!--<th:block th:each="album : ${albums}" >-->
 <!--    <tr>-->
 <!--<td th:text="${album.title}"></td>-->
@@ -31,13 +30,21 @@
             <div class="album-details">
                 <h2  th:text="${album.title}"></h2>
                 <p th:text="${album.artist}"></p>
+                <div>Songs:</div>
+                <ul th:each="song : ${album.songs}">
+                    <li th:text="${song.songTitle}"> <span th:text="${song.songLengthInSec}"></span> (s) </li>
+
+                </ul>
                 <p> <span th:text="${album.songCount}"></span> songs</p>
                 <p> <span th:text="${album.lengthInSec}"></span> (s) </p>
             </div>
         </div>
         </div>
+
     </th:block>
+
 </div>
+
 
 <style>
  .album-cards-container {
@@ -80,8 +87,29 @@ width: 300px;
         <input type="submit" value="Add">
 
     </fieldset>
+    <form action="/addsong" method="post">
+        <fieldset>
+
+            <legend>Add Song to Album</legend>
+            <label for="albumId">Select Album:</label>
+            <select name="albumId" id="albumId">
+                <option th:each="albumOption : ${albums}"
+                        th:value="${albumOption.id}"
+                        th:text="${albumOption.title}"></option>
+            </select>
+
+            <label for="songTitle">Song Title</label>
+            <input type="text" name="songTitle" id="songTitle" required />
+
+            <label for="songLengthInSec">Song Length (s)</label>
+            <input type="text" name="songLengthInSec" id="songLengthInSec" required />
+
+            <input type="submit" value="Add Song" />
+        </fieldset>
+    </form>
 
 </form>
+
 </body>
 
 </html>

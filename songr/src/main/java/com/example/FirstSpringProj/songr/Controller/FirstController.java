@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class FirstController {
 
 
-//localhost:8080/
+//localhost:8080/ourApp
     @GetMapping("/ourApp")
     public String basicRes(){
         return "SongrApp.html" ;
