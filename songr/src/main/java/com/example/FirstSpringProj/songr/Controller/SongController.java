@@ -24,11 +24,11 @@ public class SongController {
     SongRepositry songRepositry;
 
     @PostMapping("/addsong")
-    public RedirectView addSong(String songTitle, int songLengthInSec, Long albumId){
+    public RedirectView addSong(String songTitle, int songLengthInSec,int trackNumber, Long albumId){
     Album album = albumsRepositry.findById(albumId)
             .orElseThrow(() -> new AlbumsNotFoundExceptions("Could not find Album for this song "));
 
-    Song song = new Song(songTitle,songLengthInSec,album);
+    Song song = new Song(songTitle,songLengthInSec,trackNumber,album);
     songRepositry.save(song);
     return new RedirectView("/");
 }

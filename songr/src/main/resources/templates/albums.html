@@ -32,11 +32,12 @@
                 <p th:text="${album.artist}"></p>
                 <div>Songs:</div>
                 <ul th:each="song : ${album.songs}">
-                    <li th:text="${song.songTitle}"> <span th:text="${song.songLengthInSec}"></span> (s) </li>
-
+                    <li th:text="${song.songTitle}"> (s)  </li>
+                    <p> No. <span th:text="${song.trackNumber}"></span>,
+                    <span  th:text="${song.songLengthInSec}"></span > (s) </p>
                 </ul>
-                <p> <span th:text="${album.songCount}"></span> songs</p>
-                <p> <span th:text="${album.lengthInSec}"></span> (s) </p>
+                <p> <span th:text="${album.songCount}"></span> songs
+                <span th:text="${album.lengthInSec}"></span> (s) </p>
             </div>
         </div>
         </div>
@@ -73,10 +74,10 @@ width: 300px;
         <input type="text" name="title" id="title" >
 
         <label for="artist">Artist</label>
-        <input type="text" name="artist" id="artist">
+        <input type="text" name="artist" id="artist" >
 
         <label for="songCount">Song Count</label>
-        <input type="text" name="songCount" id="songCount" >
+        <input type="text" name="songCount" id="songCount"  >
 
         <label for="lengthInSec">Length (s)</label>
         <input type="text" name="lengthInSec" id="lengthInSec" >
@@ -87,6 +88,7 @@ width: 300px;
         <input type="submit" value="Add">
 
     </fieldset>
+</form>
     <form action="/addsong" method="post">
         <fieldset>
 
@@ -99,16 +101,19 @@ width: 300px;
             </select>
 
             <label for="songTitle">Song Title</label>
-            <input type="text" name="songTitle" id="songTitle" required />
+            <input type="text" name="songTitle" id="songTitle"  />
 
             <label for="songLengthInSec">Song Length (s)</label>
-            <input type="text" name="songLengthInSec" id="songLengthInSec" required />
+            <input type="text" name="songLengthInSec" id="songLengthInSec"  />
+
+            <label for="songLengthInSec">Track Number</label>
+            <input type="text" name="trackNumber" id="trackNumber"  />
 
             <input type="submit" value="Add Song" />
         </fieldset>
     </form>
 
-</form>
+
 
 </body>
 

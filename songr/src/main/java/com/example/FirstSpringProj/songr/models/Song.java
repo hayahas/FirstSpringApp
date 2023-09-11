@@ -10,17 +10,26 @@ public class Song {
     private Long id;
     private String songTitle;
     private int songLengthInSec;
-
+    private int trackNumber;
     @ManyToOne
     private Album album;
 
     public Song() {
     }
 
-    public Song(String songTitle, int songLengthInSec, Album album) {
+    public Song(String songTitle, int songLengthInSec,int trackNumber, Album album) {
         this.songTitle = songTitle;
         this.songLengthInSec = songLengthInSec;
+        this.trackNumber=trackNumber;
         this.album = album;
+    }
+
+    public int getTrackNumber() {
+        return trackNumber;
+    }
+
+    public void setTrackNumber(int trackNumber) {
+        this.trackNumber = trackNumber;
     }
 
     public Long getId() {
