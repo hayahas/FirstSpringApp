@@ -20,3 +20,10 @@
    ## Albums Display details:
    - "localhost:8080/createalbum" by running this route and adding key and values to the body the table will be updated and data added to the database .
    - "localhost:8080/" will return all data related to the albums displayed in cards and can add different albums using the web page.
+   
+------
+
+   ## Songs Display details:
+   - "localhost:8080/addSong" by running this route and adding song key and values to the body the table will be updated and data added to the database .
+   - "localhost:8080/" will return all data related to the albums displayed in cards and songs in album added to the database can add different albums using the web page.
+   - user can Add songs to specific album on the same page by filling up the form with data related to the song and chosing which album to add on.
