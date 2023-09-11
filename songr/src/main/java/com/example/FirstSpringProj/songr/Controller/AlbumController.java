@@ -26,12 +26,13 @@ public class AlbumController {
            albumsRepositry.save(album);
         return new RedirectView("/");
     }
-
+//
 //    @PostMapping("/createalbum")
 //    public RedirectView createAlbum(@ModelAttribute Album album) {
 //        albumsRepositry.save(album);
 //        return new RedirectView("/");
 //    }
+
     @GetMapping("/")
     public String getAllAlbums(Model m)
     {

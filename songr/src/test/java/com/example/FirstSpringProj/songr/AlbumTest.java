@@ -10,7 +10,6 @@ public class AlbumTest {
     @Test
     public void testConstructor(){
         Album a = new Album("Album1","John",10,2000,"https://ex.com");
-
         assertEquals("Album1", a.getTitle());
         assertEquals("John", a.getArtist());
         assertEquals(10, a.getSongCount());
@@ -21,7 +20,7 @@ public class AlbumTest {
     @Test
     public void testIdSetterAndGetter(){
         Album a =new Album();
-        a.setId(1);
+        a.setId(1L);
         long result = a.getId();
         assertEquals(1,result);
     }
